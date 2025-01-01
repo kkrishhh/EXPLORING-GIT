@@ -1,0 +1,21 @@
+name: Daily Commit
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs every day at midnight
+
+jobs:
+  commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Commit changes
+        run: |
+          git config --global user.name "kkrishhh"
+          git config --global user.email "soham6218@gmail.com"
+          git add -u
+          git commit -m "Daily commit"
+          git push
+
+          
